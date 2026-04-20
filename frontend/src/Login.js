@@ -25,7 +25,7 @@ function Login() {
         
         <div style={{ fontSize:'40px', marginBottom:'4px' }}>🛒</div>
         <h1 style={{ fontSize:'28px', color:'#2e7d32', fontWeight:'900', letterSpacing:'1px' }}>Supermercado</h1>
-        <h2 style={{ fontSize:'22px', color:'#1b5e20', fontWeight:'900', letterSpacing:'2px', marginBottom:'4px' }}>AGRIPINO</h2>
+        <h2 style={{ fontSize:'22px', color:'#F03A17', fontWeight:'900', letterSpacing:'2px', marginBottom:'4px' }}>AGRIPINO</h2>
         <p style={{ color:'#888', fontSize:'13px', marginBottom:'28px' }}>Sistema Administrativo</p>
 
         {erro && <p style={{ color:'red', marginBottom:'12px', fontSize:'14px' }}>{erro}</p>}

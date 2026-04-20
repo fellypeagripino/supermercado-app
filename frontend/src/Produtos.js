@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { FiLogOut } from 'react-icons/fi';
 
 function Produtos() {
   const [produtos, setProdutos] = useState([]);
@@ -41,18 +42,20 @@ function Produtos() {
 
   return (
     <div style={{ padding:'20px' }}>
-      <h1>🛒 Gerenciamento de Produtos</h1>
-      <button onClick={() => navigate('/usuarios')} style={{ marginBottom:'20px', padding:'8px 20px', background:'#4CAF50', color:'white', border:'none', borderRadius:'5px', cursor:'pointer' }}>👥 Ir para Usuários</button>
+      <h1 style={{ fontStyle:'italic', fontSize:'36px', color:'#313331' }}>🛒 Gerenciamento de Produtos</h1>
+      <button onClick={() => { localStorage.clear(); window.location.href='/'; }} style={{ marginBottom:'20px', padding:'8px 18px', background:'#c62828', color:'white', border:'none', borderRadius:'6px', cursor:'pointer', float:'right' }} ><FiLogOut /> Sair</button>
+      <button onClick={() => navigate('/usuarios')} style={{ marginBottom:'20px', padding:'8px 20px', background:'#ff5100', color:'white', border:'none', borderRadius:'5px', cursor:'pointer' }}>👥 Ir para Usuários</button>
 
-      <h2>Cadastrar Produto</h2>
+      <h2 style={{color:'#000000'}}>Cadastrar Produto</h2>
       <input placeholder="Nome" value={nome} onChange={e => setNome(e.target.value)} style={{ margin:'4px', padding:'6px', width:'200px' }} />
       <input placeholder="Preço" value={preco} onChange={e => setPreco(e.target.value)} style={{ margin:'4px', padding:'6px', width:'100px' }} />
       <input placeholder="Tipo" value={tipo} onChange={e => setTipo(e.target.value)} style={{ margin:'4px', padding:'6px', width:'150px' }} />
       <input placeholder="Descrição" value={descricao} onChange={e => setDescricao(e.target.value)} style={{ margin:'4px', padding:'6px', width:'200px' }} />
       <input placeholder="Validade" value={validade} onChange={e => setValidade(e.target.value)} style={{ margin:'4px', padding:'6px', width:'150px' }} />
-      <button onClick={cadastrar} style={{ margin:'4px', padding:'8px 20px', background:'#2196F3', color:'white', border:'none', borderRadius:'5px', cursor:'pointer' }}>Cadastrar</button>
+      <button onClick={cadastrar} style={{ margin:'4px', padding:'8px 20px', background:'#4CAF50', color:'white', border:'none', borderRadius:'5px', cursor:'pointer' }}>Cadastrar</button>
 
-      <h2>Lista de Produtos</h2>
+      <h2 style={{color:'#000000'}}> Lista de Produtos</h2>
+      <p style={{color:'#2c642c', marginBottom:'10px'}}>Total: {produtos.length} produto(s) cadastrado(s)</p>
       <table border="1" cellPadding="8" style={{ width:'100%', borderCollapse:'collapse' }}>
         <thead style={{ background:'#f0f0f0' }}>
           <tr><th>Nome</th><th>Preço</th><th>Tipo</th><th>Validade</th><th>Promoção</th><th>Ações</th></tr>

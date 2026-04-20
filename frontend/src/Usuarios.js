@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { FiLogOut } from 'react-icons/fi';
 
 function Usuarios() {
   const [usuarios, setUsuarios] = useState([]);
@@ -30,7 +31,8 @@ function Usuarios() {
 
   return (
     <div style={{ padding:'20px' }}>
-      <h1>👥 Gerenciamento de Usuários</h1>
+      <h1 style={{ fontStyle:'italic', fontSize:'36px', color:'#313331' }}>👥 Gerenciamento de Usuários</h1>
+      <button onClick={() => { localStorage.clear(); window.location.href='/'; }} style={{ marginBottom:'20px', padding:'8px 18px', background:'#c62828', color:'white', border:'none', borderRadius:'6px', cursor:'pointer', float:'right' }}><FiLogOut />Sair</button>
       <button onClick={() => navigate('/produtos')} style={{ marginBottom:'20px', padding:'8px 20px', background:'#2196F3', color:'white', border:'none', borderRadius:'5px', cursor:'pointer' }}>🛒 Ir para Produtos</button>
 
       <h2>Cadastrar Usuário</h2>
@@ -41,6 +43,7 @@ function Usuarios() {
       <button onClick={cadastrar} style={{ margin:'4px', padding:'8px 20px', background:'#4CAF50', color:'white', border:'none', borderRadius:'5px', cursor:'pointer' }}>Cadastrar</button>
 
       <h2>Lista de Usuários</h2>
+      <p style={{color:'#1f4e1f', marginBottom:'10px'}}>Total: {usuarios.length} usuário(s) cadastrado(s)</p>
       <table border="1" cellPadding="8" style={{ width:'100%', borderCollapse:'collapse' }}>
         <thead style={{ background:'#f0f0f0' }}>
           <tr><th>Nome</th><th>Email</th><th>CPF</th><th>Ações</th></tr>
