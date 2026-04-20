@@ -32,7 +32,7 @@ function Usuarios() {
   return (
     <div style={{ padding:'20px' }}>
       <h1 style={{ fontStyle:'italic', fontSize:'36px', color:'#313331' }}>👥 Gerenciamento de Usuários</h1>
-      <button onClick={() => { localStorage.clear(); window.location.href='/'; }} style={{ marginBottom:'20px', padding:'8px 18px', background:'#c62828', color:'white', border:'none', borderRadius:'6px', cursor:'pointer', float:'right' }}><FiLogOut />Sair</button>
+      <button onClick={() => { localStorage.clear(); window.location.href='/'; }} style={{ position:'fixed', top:'10px', right:'10px', zIndex:999, padding:'8px 18px', background:'#111111', color:'white', border:'none', borderRadius:'6px', cursor:'pointer', float:'right' }}><FiLogOut />Sair</button>
       <button onClick={() => navigate('/produtos')} style={{ marginBottom:'20px', padding:'8px 20px', background:'#2196F3', color:'white', border:'none', borderRadius:'5px', cursor:'pointer' }}>🛒 Ir para Produtos</button>
 
       <h2>Cadastrar Usuário</h2>
@@ -46,7 +46,12 @@ function Usuarios() {
       <p style={{color:'#1f4e1f', marginBottom:'10px'}}>Total: {usuarios.length} usuário(s) cadastrado(s)</p>
       <table border="1" cellPadding="8" style={{ width:'100%', borderCollapse:'collapse' }}>
         <thead style={{ background:'#f0f0f0' }}>
-          <tr><th>Nome</th><th>Email</th><th>CPF</th><th>Ações</th></tr>
+          <tr>
+  <th style={{background:'#636363', color:'white', padding:'10px'}}> Nome</th>
+  <th style={{background:'#e48900', color:'white', padding:'10px'}}> Email</th>
+  <th style={{background:'#38418e', color:'white', padding:'10px'}}> CPF</th>
+  <th style={{background:'#636363', color:'white', padding:'10px'}}> Ações</th>
+</tr>
         </thead>
         <tbody>
           {usuarios.map(u => (
